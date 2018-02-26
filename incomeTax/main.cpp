@@ -79,9 +79,9 @@ double calcHigherTax(double income) {
     double basic, higher;
     std::cout << "You have to pay the Higher Tax rate \n";
     basic = basicMax - personalAllowanceBand;
-    std::cout << "basic: " <<basic;
+    //std::cout << "basic: " <<basic;
     higher = income - basicMax + personalAllowanceBand;
-    std::cout << "higher: " <<higher;
+  //  std::cout << "higher: " <<higher;
     double taxAmount = (basic * basicRate) + (higher * higherRate);
     return taxAmount;
 }
@@ -91,11 +91,11 @@ double calcAddTax(double income) {
     double basic, higher,add;
     std::cout << "You have to pay the Additional Tax rate \n";
     basic = basicMax - personalAllowanceBand;
-    std::cout << "basic: " <<basic;
+    //std::cout << "basic: " <<basic;
     higher = higherMax - higherBand + personalAllowanceBand;
-    std::cout << "higher: " <<higher;
+    //std::cout << "higher: " <<higher;
     add = income - higherMax + personalAllowance;
-    std::cout << "add: " <<add;
+    //std::cout << "add: " <<add;
     double taxAmount = (basic * basicRate) + (higher * higherRate) + (add * addRate);
     return taxAmount;
 }
@@ -159,6 +159,7 @@ int main(int argc, const char * argv[]) {
         // 123000 - 15000 bracket
     } else if (income >= higherNPA && income < higherMax) {
         double taxableIncomeNoPA = taxableIncome + personalAllowance;
+        std::cout << taxableIncomeNoPA;
         taxAmount = calcHigherTax(taxableIncomeNoPA);
         postTaxIncome = income - taxAmount - (NI*52);
         
